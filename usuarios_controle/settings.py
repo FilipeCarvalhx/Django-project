@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'usuarios_controle',
+    'usuarios'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
