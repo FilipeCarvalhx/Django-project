@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404, redirect
 
+
 class ListPeopleView(View):
     def get(self, request):
         people = Usuario.objects.all()
@@ -28,9 +29,8 @@ class AddPersonView(View):
 
 class PeopleAPI(View):
     def get(self, request):
-        people = list(Usuario.objects.values('nome', 'age'))
+        people = list(Usuario.objects.values('nome', 'idade', 'email'))
         return JsonResponse(people, safe=False)
-
 
 
 class DeletePeople(APIView):

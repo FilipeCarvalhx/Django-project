@@ -6,19 +6,18 @@
 </head>
 <body class="container mt-4">
     <h1>Pessoas</h1>
-    <a href="{% url 'add' %}" class="btn btn-primary mb-3">Nova Pessoa</a>
-    <ul>
-  {% for person in people %}
-    <li>
-      {{ person.nome }} - {{ person.age }} anos
-      {% if person.id %}
-        <a href="{% url 'delete' person.id %}" class="btn btn-danger btn-sm">Excluir</a>
-      {% endif %}
-    </li>
-  {% empty %}
-    <li>Nenhuma pessoa cadastrada.</li>
-  {% endfor %}
-</ul>
 
+    <ul class="list-group mb-3">
+        {% for person in people %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ person.nome }} - {{ person.idade }} anos - {{ person.email }} 
+                <a href="{% url 'delete' person.id %}" class="btn btn-danger btn-sm">Excluir</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nenhuma pessoa cadastrada.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add' %}" class="btn btn-primary">Nova Pessoa</a>
 </body>
 </html>
