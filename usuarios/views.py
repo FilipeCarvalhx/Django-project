@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404, redirect
+from django.http import HttpResponse
 
 
 class ListPeopleView(View):
@@ -33,12 +34,7 @@ class PeopleAPI(View):
         return JsonResponse(people, safe=False)
 
 
-class DeletePeople(APIView):
-    def get(self, request, pk):
-        try:
-            deleted = Usuario.objects.get(pk=pk)
-            deleted.delete()
-            return Response({'mensagem': 'Usuário deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
-        except Usuario.DoesNotExist:
-            return Response({'erro': 'Usuário não encontrado'}, status=status.HTTP_404_NOT_FOUND)
-
+def DeletePeople(request, pk):
+    pessoa = get_object_or_404(Usuario, pk=pk)
+    pessoa.delete()
+    return redirect("lista")

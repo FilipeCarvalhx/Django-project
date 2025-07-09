@@ -6,5 +6,5 @@ urlpatterns = [
     path('', AddPersonView.as_view(), name='add'),
     path('add/', ListPeopleView.as_view(), name='lista'),
     path('api/', PeopleAPI.as_view(), name='api'),
-    path('api/usuarios/<int:pk>/delete/', DeletePeople.as_view(), name='delete'),
+    path('api/usuarios/<int:pk>/delete/',DeletePeople, name='delete'),
 ]
