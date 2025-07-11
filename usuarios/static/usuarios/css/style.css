@@ -1,21 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   margin: 0;
   height: 100vh;
   background-color: aliceblue;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #BCEDCA;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0,0,0,0.2);
   width: 400px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
 }
 input {
   flex: 2;
